@@ -1,7 +1,3 @@
-// Implementation of binary Search Tree
-// heavy recursion ahead
-
-// class representing unit node of Binary Search Tree
 class Node {
 	constructor ( data ) {
 		this.data = data;
@@ -10,11 +6,9 @@ class Node {
 	}
 }
 
-// class representing Binary Search Tree
 class BST {
 	constructor () { this.root = null; }
 
-	// function to initialize BST with node
 	insert ( data ) {
 		var newNode = new Node( data );
 		if ( this.root === null )
@@ -23,7 +17,7 @@ class BST {
 			this.insertNode( this.root, newNode );
 	}
 
-	// function to perform insertion on BST
+	
 	insertNode ( node, newNode ) {
 		if ( newNode.data < node.data ) {
 			if ( node.left === null )
@@ -39,10 +33,8 @@ class BST {
 		}
 	}
 
-	// helper method to call removeNode()
 	remove ( data ) { this.root = this.removeNode( this.root, data ) }
 
-	// function to remove given node from BST
 	removeNode ( node, key ) {
 		if ( node === null )
 			return null;
@@ -77,21 +69,18 @@ class BST {
 		}
 	}
 
-	// method to perform inorder traversal
 	inorder ( node ) {
 		this.inorder( node.left );
 		console.log( node.data );
 		this.inorder( node.right );
 	}
 
-	// method to perform preorder traversal
 	preorder ( node ) {
 		console.log( node.data );
 		this.preorder( node.left );
 		this.preorder( node.right );
 	}
 
-	// method to perform postorder traversal
 	postorder ( node ) {
 		if ( node === null ) return;
 		this.postorder( node.left );
@@ -99,7 +88,6 @@ class BST {
 		console.log( node.data );
 	}
 
-	// to find minimum node in BST
 	findMinNode ( node ) {
 		if ( node.left === null )
 			return node;
@@ -107,10 +95,8 @@ class BST {
 			return this.findMinNode( node.left );
 	}
 
-	// to get root of BST 
 	getRootNode () { return this.root; }
 
-	// to search for a node with given data
 	search ( node, data ) {
 		if ( node === null )
 			return null;
